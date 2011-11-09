@@ -218,7 +218,10 @@ def build_mosaic(input_path, output_path, collection_path,
                                         
             if is_bw:
                 source_color = (source_color, source_color, source_color)
-                
+            else:
+                if (len(source_color) == 4):
+                    source_color = source_color[:-1]
+
             if not USING_RTREE:
                 match = get_euclidean_match(source_color, colormap)
             else:
